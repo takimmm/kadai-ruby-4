@@ -11,6 +11,11 @@
 </head>
 
 <body>
+    <% company = params['company'] %>
+    <% name = params['name'] %>
+    <% mail = params['mail'] %>
+    <% tel = params['tel'] %>
+    <% content = params['content'] %>
     <header>
         <!-- 576px以上の画面幅のとき、メニューを表示する（それ未満なら折りたたむ）指定を追加 -->
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -39,27 +44,27 @@
         <p>ありがとうございました。送信を受け付けました。</p>
         <p>3営業日以内をめどにご返信いたしますので、しばらくお待ちください。</p>
         <h2>送信内容</h2>
-        <table cellpadding="10">
+        <table>
             <tbody>
                 <tr>
                     <th>会社名</th>
-                    <td><%= params['company'] %></td>
+                    <td><%= company %></td>
                 </tr>
                 <tr>
                     <th>氏名</th>
-                    <td><%=params['name'] %></td>
+                    <td><%= name %></td>
                 </tr>
                 <tr>
                     <th>メール</th>
-                    <td><%= params['mail'] %></td>
+                    <td><%= mail %></td>
                 </tr>
                 <tr>
                     <th>電話番号</th>
-                    <td><%= params['tel'] %></td>
+                    <td><%= tel %></td>
                 </tr>
                 <tr>
                     <th>内容</th>
-                    <td><%= params['content'] %></td>
+                    <td><%= content.gsub(/\r\n|\r|\n/, "<br>") %></td>
                 </tr>
             </tbody>
         </table>
